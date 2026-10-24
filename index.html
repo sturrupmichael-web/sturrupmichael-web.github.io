@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self'; style-src 'self'; script-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <title>Michael Sturrup · Games</title>
+  <meta name="description" content="Small browser games by Michael Sturrup. Pick one and play, no download needed.">
+  <link rel="canonical" href="https://michaelsturrup.com/">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#f7f7f5" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#121419" media="(prefers-color-scheme: dark)">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Michael Sturrup">
+  <meta property="og:title" content="Michael Sturrup · Games">
+  <meta property="og:description" content="Small browser games by Michael Sturrup. Pick one and play, no download needed.">
+  <meta property="og:url" content="https://michaelsturrup.com/">
+  <meta property="og:image" content="https://michaelsturrup.com/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Michael Sturrup's games, with a screenshot of Helpdesk Survivors">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Michael Sturrup · Games">
+  <meta name="twitter:description" content="Small browser games by Michael Sturrup. Pick one and play, no download needed.">
+  <meta name="twitter:image" content="https://michaelsturrup.com/og-image.jpg">
+
+  <link rel="stylesheet" href="/style.css">
+  <link rel="preload" href="/games.json" as="fetch" crossorigin>
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <h1>Michael Sturrup</h1>
+    <p class="tagline">I work in IT by day and make small browser games the rest of the time. Pick one and play, no download needed.</p>
+  </header>
+
+  <main>
+    <h2 class="visually-hidden">Games</h2>
+    <ul class="games" id="games" aria-live="polite">
+      <!-- app.js fills this from games.json. -->
+    </ul>
+    <noscript>
+      <ul class="games">
+        <li class="card">
+          <a class="thumb" href="https://game.michaelsturrup.com/" tabindex="-1" aria-hidden="true"><img src="/images/helpdesk-survivors.webp" alt="" width="800" height="420"></a>
+          <div class="body">
+            <h3>Helpdesk Survivors</h3>
+            <p>Survive a 20-minute shift on the IT helpdesk.</p>
+            <a class="play" href="https://game.michaelsturrup.com/">Play<span class="visually-hidden"> Helpdesk Survivors</span></a>
+          </div>
+        </li>
+      </ul>
+    </noscript>
+  </main>
+
+  <footer class="site-footer">
+    <p>© <span id="year">2026</span> Michael Sturrup</p>
+  </footer>
+</body>
+</html>

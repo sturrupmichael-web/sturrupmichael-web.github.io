@@ -1,0 +1,12 @@
+[
+  {
+    "title": "Helpdesk Survivors",
+    "slug": "helpdesk-survivors",
+    "description": "Survive a 20-minute shift on the IT helpdesk while your tools fire on their own and the tickets swarm in.",
+    "url": "https://game.michaelsturrup.com/",
+    "thumbnail": "images/helpdesk-survivors.webp",
+    "thumbnailAlt": "A pixel-art technician surrounded by office workers waving tickets on an open-plan office floor",
+    "tags": ["Action", "Pixel art", "Phone + desktop"],
+    "status": "new"
+  }
+]
