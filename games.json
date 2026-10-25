@@ -1,5 +1,15 @@
 [
   {
+    "title": "Helpdesk Survivors 3D",
+    "slug": "helpdesk-survivors-3d",
+    "description": "The helpdesk shift rebuilt in 3D: five office floors, nineteen techs, bosses and an online leaderboard, on a phone or a computer.",
+    "url": "https://michaelsturrup.com/HelpDeskSurvivors3D/",
+    "thumbnail": "images/helpdesk-survivors-3d.webp",
+    "thumbnailAlt": "A low-poly technician in a blue polo on a 3D office floor, ringed by a crowd of office workers, with tools flying around",
+    "tags": ["Action", "3D", "Phone + desktop"],
+    "status": "new"
+  },
+  {
     "title": "Helpdesk Survivors",
     "slug": "helpdesk-survivors",
     "description": "Survive a 20-minute shift on the IT helpdesk while your tools fire on their own and the tickets swarm in.",
