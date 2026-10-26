@@ -15,6 +15,7 @@ JavaScript: no framework, no build step, no tracking. GitHub Pages serves it at
 | `og-image.jpg` | The picture that shows when someone shares the link (1200×630) |
 | `favicon.svg`, `apple-touch-icon.png` | Browser tab and home-screen icons |
 | `CNAME` | Tells GitHub Pages the domain name. Don't delete it |
+| `OathofStur/` | Oath of Stur play-test build. Unlisted: not in `games.json`, marked noindex, reachable only by its link |
 
 ## Add a new game
 
@@ -62,6 +63,19 @@ Squarespace: CNAME, host `newgame`, value `sturrupmichael-web.github.io`.
 
 Small games with no build step can also go straight into this repo in a folder
 (`my-new-game/index.html`). They are then served at `michaelsturrup.com/my-new-game/`.
+
+## Unlisted play-tests
+
+A game can live here without a card: put it in a folder and leave it out of
+`games.json`. It's then reachable only by its direct link. Add
+`<meta name="robots" content="noindex, nofollow">` to its page so search engines
+skip it too.
+
+`OathofStur/index.html` is the Oath of Stur play-test, served at
+<https://michaelsturrup.com/OathofStur/>. It's a single self-contained file built in
+the game's repository (sturrupmichael-web/OathofStur-RPG): run
+`npm run build:single` in `client/`, then copy `client/dist/single.html` here as
+`OathofStur/index.html`, keeping the robots line.
 
 ## Preview locally
 
