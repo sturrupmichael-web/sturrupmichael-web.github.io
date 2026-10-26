@@ -11,11 +11,11 @@ JavaScript: no framework, no build step, no tracking. GitHub Pages serves it at
 | `app.js` | Reads `games.json` and draws the cards |
 | `style.css` | All styling, light and dark mode included |
 | `images/` | One thumbnail per game |
-| `404.html` | Shown for any address that doesn't exist |
+| `404.html`, `404.js` | Shown for any address that doesn't exist. `404.js` first retries the address in lowercase |
 | `og-image.jpg` | The picture that shows when someone shares the link (1200×630) |
 | `favicon.svg`, `apple-touch-icon.png` | Browser tab and home-screen icons |
 | `CNAME` | Tells GitHub Pages the domain name. Don't delete it |
-| `OathofStur/` | Oath of Stur play-test build. Unlisted: not in `games.json`, marked noindex, reachable only by its link |
+| `oathofstur/` | Oath of Stur play-test build. Unlisted: not in `games.json`, marked noindex, reachable only by its link |
 
 ## Add a new game
 
@@ -71,11 +71,13 @@ A game can live here without a card: put it in a folder and leave it out of
 `<meta name="robots" content="noindex, nofollow">` to its page so search engines
 skip it too.
 
-`OathofStur/index.html` is the Oath of Stur play-test, served at
-<https://michaelsturrup.com/OathofStur/>. It's a single self-contained file built in
+`oathofstur/index.html` is the Oath of Stur play-test, served at
+<https://michaelsturrup.com/oathofstur/>. Any capitalisation works
+(`/OathofStur`, `/OATHOFSTUR`): `404.js` redirects addresses with capitals to their
+lowercase form, so keep folder names in this repo lowercase. It's a single self-contained file built in
 the game's repository (sturrupmichael-web/OathofStur-RPG): run
 `npm run build:single` in `client/`, then copy `client/dist/single.html` here as
-`OathofStur/index.html`, keeping the robots line.
+`oathofstur/index.html`, keeping the robots line.
 
 ## Preview locally
 
