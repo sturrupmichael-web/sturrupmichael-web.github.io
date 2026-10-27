@@ -1,5 +1,15 @@
 [
   {
+    "title": "Helpdesk Survivors: Doom Mode",
+    "slug": "helpdesk-doom",
+    "description": "The helpdesk as a 1993-style shooter: fight through two floors of users with your IT tools, find the access badges and clock out at the exit.",
+    "url": "https://michaelsturrup.com/hddoom/",
+    "thumbnail": "images/helpdesk-doom.webp",
+    "thumbnailAlt": "A retro first-person view down an office aisle, ticket gun in hand, with a security guard, a confused user and two managers walking up",
+    "tags": ["Shooter", "Retro FPS", "Keyboard + mouse"],
+    "status": "new"
+  },
+  {
     "title": "Helpdesk Survivors 3D",
     "slug": "helpdesk-survivors-3d",
     "description": "The helpdesk shift rebuilt in 3D: five office floors, nineteen techs, bosses and an online leaderboard, on a phone or a computer.",
