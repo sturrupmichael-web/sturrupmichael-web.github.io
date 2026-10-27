@@ -84,8 +84,8 @@ the game's repository (sturrupmichael-web/OathofStur-RPG): run
 
 `hddoom/index.html` is Doom Mode, served at <https://michaelsturrup.com/hddoom/>.
 It's one self-contained file (code, maps, textures and sounds all inside), built in
-the 3D game's repository (sturrupmichael-web/HelpDeskSurvivors3D). To update it, run
-`npm run build` there, then copy `doom/index.html` here as `hddoom/index.html`.
+the game's own repository (sturrupmichael-web/helpdesk-doom). To update it, run
+`npm run build` there, then copy `index.html` here as `hddoom/index.html`.
 
 ## Preview locally
 
