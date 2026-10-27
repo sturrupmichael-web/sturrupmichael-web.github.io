@@ -16,6 +16,7 @@ JavaScript: no framework, no build step, no tracking. GitHub Pages serves it at
 | `favicon.svg`, `apple-touch-icon.png` | Browser tab and home-screen icons |
 | `CNAME` | Tells GitHub Pages the domain name. Don't delete it |
 | `oathofstur/` | Oath of Stur play-test build. Unlisted: not in `games.json`, marked noindex, reachable only by its link |
+| `hddoom/` | Helpdesk Survivors: Doom Mode, a single self-contained page. Listed in `games.json` |
 
 ## Add a new game
 
@@ -78,6 +79,13 @@ lowercase form, so keep folder names in this repo lowercase. It's a single self-
 the game's repository (sturrupmichael-web/OathofStur-RPG): run
 `npm run build:single` in `client/`, then copy `client/dist/single.html` here as
 `oathofstur/index.html`, keeping the robots line.
+
+## Helpdesk Survivors: Doom Mode
+
+`hddoom/index.html` is Doom Mode, served at <https://michaelsturrup.com/hddoom/>.
+It's one self-contained file (code, maps, textures and sounds all inside), built in
+the 3D game's repository (sturrupmichael-web/HelpDeskSurvivors3D). To update it, run
+`npm run build` there, then copy `doom/index.html` here as `hddoom/index.html`.
 
 ## Preview locally
 
