@@ -1,5 +1,15 @@
 [
   {
+    "title": "Access Denied",
+    "slug": "access-denied",
+    "description": "Papers, Please on the IT service desk: verify every caller against the directory, approve or deny, and don't let the social engineer who calls every day get in.",
+    "url": "https://michaelsturrup.com/access-denied/",
+    "thumbnail": "images/access-denied.webp",
+    "thumbnailAlt": "A Windows 95-style service desk: a caller's transcript, their ticket stamped DENIED, and the directory record showing the real spelling of their name",
+    "tags": ["Puzzle", "Retro desktop", "Desktop"],
+    "status": "new"
+  },
+  {
     "title": "Helpdesk Survivors: Doom Mode",
     "slug": "helpdesk-doom",
     "description": "The helpdesk as a 1993-style shooter: fight through two floors of users with your IT tools, find the access badges and clock out at the exit.",
