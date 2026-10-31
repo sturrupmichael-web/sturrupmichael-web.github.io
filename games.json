@@ -1,5 +1,15 @@
 [
   {
+    "title": "Mini Network",
+    "slug": "mini-network",
+    "description": "Keep a growing company online: draw links between offices, warehouses and shops, add switches and firewalls, and survive cut cables, patch days and a DDoS before a site's queue overflows.",
+    "url": "https://michaelsturrup.com/mini-network/",
+    "thumbnail": "images/mini-network.webp",
+    "thumbnailAlt": "A minimal network map: coloured links run from a dark HQ square out to blue office circles, orange warehouse squares and green shop triangles, with packets moving along them",
+    "tags": ["Strategy", "Minimal", "Phone + desktop"],
+    "status": "new"
+  },
+  {
     "title": "Access Denied",
     "slug": "access-denied",
     "description": "Papers, Please on the IT service desk: verify every caller against the directory, approve or deny, and don't let the social engineer who calls every day get in.",
