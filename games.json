@@ -1,5 +1,15 @@
 [
   {
+    "title": "Plague IT",
+    "slug": "plague-it",
+    "description": "You are the malware: start on one laptop, evolve, and take every endpoint across the USA and Canada before SecOps cleans you out.",
+    "url": "https://michaelsturrup.com/plague-it/",
+    "thumbnail": "images/plague-it.webp",
+    "thumbnailAlt": "A dark threat map of the USA and Canada with most states and provinces glowing red, network links arcing between them and SecOps defenses listed in the corner",
+    "tags": ["Strategy", "Threat map", "Phone + desktop"],
+    "status": "new"
+  },
+  {
     "title": "Mini Network",
     "slug": "mini-network",
     "description": "Keep a growing company online: draw links between offices, warehouses and shops, add switches and firewalls, and survive cut cables, patch days and a DDoS before a site's queue overflows.",
