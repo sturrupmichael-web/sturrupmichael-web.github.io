@@ -7,7 +7,8 @@
     "thumbnail": "images/league-night.webp",
     "thumbnailAlt": "Three phone screens of a pixel-art disc golf game: a disc flying down a tree-lined fairway, the League Night title menu, and a behind-the-disc putting view with a power meter",
     "tags": ["Sports", "Pixel art", "Phone + desktop"],
-    "status": "new"
+    "updated": "2026-11-15",
+    "source": { "repo": "League-Night", "branch": "main" }
   },
   {
     "title": "Plague IT",
@@ -17,7 +18,8 @@
     "thumbnail": "images/plague-it.webp",
     "thumbnailAlt": "A dark threat map of the USA and Canada with most states and provinces glowing red, network links arcing between them and SecOps defenses listed in the corner",
     "tags": ["Strategy", "Threat map", "Phone + desktop"],
-    "status": "new"
+    "updated": "2026-11-13",
+    "source": { "repo": "plague-it", "branch": "main" }
   },
   {
     "title": "Nano Networks",
@@ -27,7 +29,8 @@
     "thumbnail": "images/mini-network.webp",
     "thumbnailAlt": "A minimal network map: coloured links run from a dark HQ square out to blue office circles, orange warehouse squares and green shop triangles, with packets moving along them",
     "tags": ["Strategy", "Minimal", "Phone + desktop"],
-    "status": "new"
+    "updated": "2026-11-13",
+    "source": { "repo": "mini-network", "branch": "main" }
   },
   {
     "title": "Access Denied",
@@ -37,7 +40,8 @@
     "thumbnail": "images/access-denied.webp",
     "thumbnailAlt": "A Windows 95-style service desk: a caller's transcript, their ticket stamped DENIED, and the directory record showing the real spelling of their name",
     "tags": ["Puzzle", "Retro desktop", "Desktop"],
-    "status": "new"
+    "updated": "2026-10-31",
+    "source": { "repo": "access-denied", "branch": "main" }
   },
   {
     "title": "Helpdesk Survivors: Doom Mode",
@@ -47,7 +51,8 @@
     "thumbnail": "images/helpdesk-doom.webp",
     "thumbnailAlt": "A retro first-person view down an office aisle, ticket gun in hand, with a security guard, a confused user and two managers walking up",
     "tags": ["Shooter", "Retro FPS", "Phone + desktop"],
-    "status": "new"
+    "updated": "2026-10-27",
+    "source": { "repo": "sturrupmichael-web.github.io", "branch": "main", "path": "hddoom" }
   },
   {
     "title": "Helpdesk Survivors 3D",
@@ -57,7 +62,8 @@
     "thumbnail": "images/helpdesk-survivors-3d.webp",
     "thumbnailAlt": "A low-poly technician in a blue polo on a 3D office floor, ringed by a crowd of office workers, with tools flying around",
     "tags": ["Action", "3D", "Phone + desktop"],
-    "status": "new"
+    "updated": "2026-10-27",
+    "source": { "repo": "HelpDeskSurvivors3D", "branch": "main" }
   },
   {
     "title": "Helpdesk Survivors",
@@ -67,6 +73,7 @@
     "thumbnail": "images/helpdesk-survivors.webp",
     "thumbnailAlt": "A pixel-art technician surrounded by office workers waving tickets on an open-plan office floor",
     "tags": ["Action", "Pixel art", "Phone + desktop"],
-    "status": "new"
+    "updated": "2026-10-24",
+    "source": { "repo": "HelpDeskSurvivor", "branch": "main" }
   }
 ]

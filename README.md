@@ -35,12 +35,22 @@ JavaScript: no framework, no build step, no tracking. GitHub Pages serves it at
      "thumbnail": "images/my-new-game.webp",
      "thumbnailAlt": "What the screenshot shows, for screen readers",
      "tags": ["Puzzle"],
-     "status": "new"
+     "updated": "2026-11-15",
+     "source": { "repo": "my-new-game", "branch": "main" }
    }
    ```
 
-   - `status` is optional: `"new"` adds a badge, and `"coming soon"` shows the card
-     with no Play button (`url` can then be empty). Leave it out for neither.
+   - `updated` shows as an "Updated Nov 15, 2026" badge on the card. Set it to the
+     day you add the game.
+   - `source` is optional: the game's GitHub repository, the branch the site is built
+     from, and (for a game kept in this repo) its folder as `"path"`. With it, the page
+     asks GitHub for that branch's newest commit and shows its date when it's later than
+     `updated`, so the badge keeps itself current. Each visitor's browser asks at most
+     once an hour. If GitHub doesn't answer (for example its hourly limit of 60 requests
+     per visitor), the `updated` date stays. The page's Content-Security-Policy allows
+     `https://api.github.com` for this.
+   - `status` is optional: `"coming soon"` shows the card with no Play button and no
+     date (`url` can then be empty).
    - `tags` is optional. Games appear in the order they're listed, so put the newest
      first.
    - Mind the commas between entries. The page shows "The game list didn't load" if

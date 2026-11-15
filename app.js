@@ -1,9 +1,24 @@
 // Builds the game cards from games.json. Each entry:
 //   title, slug, description, url, thumbnail (path under images/), thumbnailAlt,
-//   tags (optional list), status (optional: "new" or "coming soon").
+//   tags (optional list), status (optional: "coming soon"),
+//   updated (optional, "YYYY-MM-DD"): shown as "Updated Nov 15, 2026" on the card,
+//   source (optional, { repo, branch, path }): where the game's code lives on GitHub. When
+//     given, the page asks GitHub for the date of the newest commit there and shows that
+//     instead if it is later than `updated`, so the date keeps itself current.
 // A "coming soon" game shows its card without a working Play button.
 
-const STATUS_LABELS = { new: 'New', 'coming soon': 'Coming soon' };
+const STATUS_LABELS = { 'coming soon': 'Coming soon' };
+const OWNER = 'sturrupmichael-web';
+const CACHE_KEY = 'card-dates-v1';
+const CACHE_MS = 60 * 60 * 1000; // ask GitHub at most once an hour per visitor
+
+// "2026-11-15" is a calendar day: format it as that day everywhere (no time-zone shift).
+const dayFormat = new Intl.DateTimeFormat('en-US', { month: 'short', day: 'numeric', year: 'numeric', timeZone: 'UTC' });
+const toDay = (iso) => {
+  const d = new Date(iso);
+  return Number.isNaN(d.getTime()) ? null : `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+};
+const label = (day) => `Updated ${dayFormat.format(new Date(`${day}T00:00:00Z`))}`;
 
 function el(tag, attrs = {}, text) {
   const node = document.createElement(tag);
@@ -35,11 +50,14 @@ function card(game) {
   body.append(el('h3', {}, game.title));
 
   const tags = [...(STATUS_LABELS[status] ? [[STATUS_LABELS[status], 'tag status']] : []), ...(game.tags || []).map((t) => [t, 'tag'])];
-  if (tags.length) {
-    const ul = el('ul', { class: 'tags', 'aria-label': 'Tags' });
-    for (const [t, cls] of tags) ul.append(el('li', { class: cls }, t));
-    body.append(ul);
+  const ul = el('ul', { class: 'tags', 'aria-label': 'Tags' });
+  if (game.updated && !STATUS_LABELS[status]) {
+    const li = el('li', { class: 'tag status' });
+    li.append(el('time', { datetime: game.updated }, label(game.updated)));
+    ul.append(li);
   }
+  for (const [t, cls] of tags) ul.append(el('li', { class: cls }, t));
+  if (ul.children.length) body.append(ul);
 
   body.append(el('p', {}, game.description));
 
@@ -55,6 +73,52 @@ function card(game) {
   return li;
 }
 
+function readCache() {
+  try {
+    const c = JSON.parse(localStorage.getItem(CACHE_KEY));
+    if (c && Date.now() - c.at < CACHE_MS) return c.days;
+  } catch {
+    /* no cache */
+  }
+  return null;
+}
+
+function writeCache(days) {
+  try {
+    localStorage.setItem(CACHE_KEY, JSON.stringify({ at: Date.now(), days }));
+  } catch {
+    /* private mode: just ask again next time */
+  }
+}
+
+// The day of the newest commit on a game's branch (and folder), or null if GitHub doesn't answer.
+async function lastCommitDay({ repo, branch, path }) {
+  const q = new URLSearchParams({ per_page: '1' });
+  if (branch) q.set('sha', branch);
+  if (path) q.set('path', path);
+  const res = await fetch(`https://api.github.com/repos/${OWNER}/${encodeURIComponent(repo)}/commits?${q}`, { headers: { Accept: 'application/vnd.github+json' } });
+  if (!res.ok) return null;
+  const [c] = await res.json();
+  return c ? toDay(c.commit.committer.date) : null;
+}
+
+// Swap in newer dates from GitHub. Best effort: the dates from games.json stay if it fails.
+async function refreshDates(games) {
+  let days = readCache();
+  if (!days) {
+    const found = await Promise.all(games.map((g) => (g.source?.repo ? lastCommitDay(g.source).catch(() => null) : null)));
+    days = Object.fromEntries(games.map((g, i) => [g.slug, found[i]]).filter(([, d]) => d));
+    if (Object.keys(days).length) writeCache(days);
+  }
+  for (const g of games) {
+    const day = days[g.slug];
+    const time = document.querySelector(`#${CSS.escape(g.slug)} time`);
+    if (!day || !time || (g.updated && day <= g.updated)) continue;
+    time.dateTime = day;
+    time.textContent = label(day);
+  }
+}
+
 async function main() {
   document.getElementById('year').textContent = new Date().getFullYear();
   const list = document.getElementById('games');
@@ -63,6 +127,7 @@ async function main() {
     if (!res.ok) throw new Error(res.status);
     const games = await res.json();
     list.replaceChildren(...games.map(card));
+    refreshDates(games);
   } catch {
     list.replaceChildren(el('li', { class: 'message' }, 'The game list didn’t load. Try refreshing the page.'));
   }
