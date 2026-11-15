@@ -1,5 +1,15 @@
 [
   {
+    "title": "League Night",
+    "slug": "league-night",
+    "description": "Retro pixel disc golf at dusk: read the wind, pick your disc and angle, swipe putts at the chains, and post your round to the leaderboard.",
+    "url": "https://michaelsturrup.com/League-Night/",
+    "thumbnail": "images/league-night.webp",
+    "thumbnailAlt": "Three phone screens of a pixel-art disc golf game: a disc flying down a tree-lined fairway, the League Night title menu, and a behind-the-disc putting view with a power meter",
+    "tags": ["Sports", "Pixel art", "Phone + desktop"],
+    "status": "new"
+  },
+  {
     "title": "Plague IT",
     "slug": "plague-it",
     "description": "You are the malware: start on one laptop, evolve, and take every endpoint across the USA and Canada before SecOps cleans you out.",
