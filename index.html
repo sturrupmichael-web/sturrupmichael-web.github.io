@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self'; style-src 'self'; script-src 'self'; connect-src 'self' https://api.github.com; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self'; style-src 'self'; script-src 'self'; connect-src 'self' https://api.github.com https://abeqdmurddrkrqbnfylb.supabase.co; object-src 'none'; base-uri 'none'; form-action 'none'">
   <title>Michael Sturrup · Games</title>
   <meta name="description" content="Small browser games by Michael Sturrup. Pick one and play, no download needed.">
   <link rel="canonical" href="https://michaelsturrup.com/">
@@ -30,9 +30,11 @@
   <link rel="stylesheet" href="/style.css">
   <link rel="preload" href="/games.json" as="fetch" crossorigin>
   <script src="/app.js" defer></script>
+  <script src="/account.js" defer></script>
 </head>
 <body>
   <header class="site-header">
+    <div class="account" id="account" aria-label="Your account" role="region" hidden></div>
     <h1>Michael Sturrup</h1>
     <p class="tagline">I work in IT by day and make small browser games the rest of the time. Pick one and play, no download needed.</p>
   </header>
