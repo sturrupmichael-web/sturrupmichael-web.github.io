@@ -180,6 +180,115 @@ a:focus-visible {
   a.thumb:hover img { transform: none; }
 }
 
+/* Account: Google sign-in shared by the games on this site (account.js). */
+.site-header { position: relative; }
+
+.account {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 6px 14px;
+  max-width: 32rem;
+  margin: -24px 0 32px auto;
+  font-size: 0.875rem;
+  text-align: right;
+}
+
+.account[hidden] { display: none; }
+
+.account p { margin: 0; }
+
+.account-note { flex-basis: 100%; color: var(--muted); font-size: 0.8125rem; line-height: 1.4; }
+
+.account-error { color: #c0392b; }
+
+@media (prefers-color-scheme: dark) { .account-error { color: #ff8a7a; } }
+
+.account button {
+  font: inherit;
+  cursor: pointer;
+}
+
+.google {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 40px;
+  padding: 8px 16px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--text);
+  font-weight: 600;
+  box-shadow: var(--shadow);
+}
+
+.google:hover { border-color: var(--accent); }
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 12px;
+  border: 1px solid var(--accent);
+  border-radius: 999px;
+  color: var(--muted);
+}
+
+.badge strong { color: var(--text); font-weight: 600; overflow-wrap: anywhere; }
+
+.link {
+  padding: 4px 2px;
+  border: 0;
+  background: none;
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.name-form {
+  flex-basis: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 6px 8px;
+}
+
+.name-form label { flex-basis: 100%; color: var(--muted); }
+
+.name-form input {
+  width: 12rem;
+  min-height: 40px;
+  padding: 6px 12px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--surface);
+  color: var(--text);
+  font: inherit;
+}
+
+.small {
+  min-height: 40px;
+  padding: 6px 16px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--accent);
+  color: var(--accent-text);
+  font-weight: 600;
+}
+
+.account button:focus-visible, .name-form input:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
+}
+
+@media (max-width: 640px) {
+  .account { max-width: none; margin: -24px 0 28px; justify-content: flex-start; text-align: left; }
+  .name-form { justify-content: flex-start; }
+}
+
 /* 404 page */
 .not-found { text-align: left; }
 .not-found .play { margin-top: 8px; }

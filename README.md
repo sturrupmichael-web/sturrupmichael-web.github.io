@@ -9,6 +9,7 @@ JavaScript: no framework, no build step, no tracking. GitHub Pages serves it at
 | `index.html` | The page: header, card grid, link-preview tags |
 | `games.json` | The list of games. The cards are built from this file |
 | `app.js` | Reads `games.json` and draws the cards |
+| `account.js` | Sign in with Google, shared with the games on the site. See [docs/site-sign-in.md](docs/site-sign-in.md) |
 | `style.css` | All styling, light and dark mode included |
 | `images/` | One thumbnail per game |
 | `404.html`, `404.js` | Shown for any address that doesn't exist. `404.js` first retries the address in lowercase |
