@@ -1,5 +1,16 @@
 [
   {
+    "title": "Crokinole",
+    "slug": "crokinole",
+    "description": "Flick wooden discs at the 20 hole and knock your rivals into the ditch. Play against the computer, pass and play, or put the board on the TV and use phones as controllers.",
+    "url": "https://michaelsturrup.com/crokinole/",
+    "thumbnail": "images/crokinole.webp",
+    "thumbnailAlt": "A top-down maple crokinole board with red and green discs scattered around the pegs and the centre hole, and players' names around the rail",
+    "tags": ["Party", "Tabletop", "Phone + desktop"],
+    "updated": "2026-11-18",
+    "source": { "repo": "crokinole", "branch": "main" }
+  },
+  {
     "title": "League Night",
     "slug": "league-night",
     "description": "Retro pixel disc golf at dusk: read the wind, pick your disc and angle, swipe putts at the chains, and post your round to the leaderboard.",
