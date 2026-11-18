@@ -13,7 +13,7 @@
 //   <script src="/live.js" data-page="home" defer></script>         count a visit to "home"
 //   <script src="/live.js" data-game="my-game" defer></script>      a game: count it as a
 //                                                                   player and a visit
-//   SiteLive.onPlayers((counts, state) => ...)   counts = { slug: people }, live
+//   SiteLive.onPlayers((counts, state, connected) => ...)   counts = { slug: people }, live
 //   SiteLive.totals()  -> Promise<[{ page, total, today }]>
 //   SiteLive.daily(30) -> Promise<[{ day, page, visits }]>
 
@@ -69,9 +69,11 @@
     return out;
   }
 
+  let joined = false;
+
   function emit() {
     const c = counts();
-    listeners.forEach((cb) => cb(c, state));
+    listeners.forEach((cb) => cb(c, state, joined));
   }
 
   function send(topic, event, payload, jr = joinRef) {
@@ -117,6 +119,7 @@
       if (msg.event === 'phx_reply' && msg.ref === joinRef && msg.payload?.status === 'ok' && game) {
         send(TOPIC, 'presence', { type: 'presence', event: 'track', payload: { g: game, r: 'play' } });
       } else if (msg.event === 'presence_state') {
+        joined = true;
         state = {};
         applyDiff({ joins: msg.payload });
         emit();
@@ -128,6 +131,7 @@
     ws.onclose = () => {
       clearInterval(heartbeat);
       ws = null;
+      joined = false;
       state = {};
       emit();
       if (document.visibilityState === 'hidden') return; // reconnect when the tab is back
@@ -143,7 +147,7 @@
     onPlayers(cb) {
       listeners.add(cb);
       connect();
-      if (ws?.readyState === WebSocket.OPEN) cb(counts(), state);
+      if (joined) cb(counts(), state, true);
       return () => listeners.delete(cb);
     },
     totals: () => rpc('visit_totals'),

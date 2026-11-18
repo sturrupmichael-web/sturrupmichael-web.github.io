@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-9YhU+aJ8UE1iyQAGW/lndhJFprlNsyjpc+/Vz66i7uU=' 'sha256-A+mbeO+j+aBk9NAwF2ei2x0LIHvoWClxA1FiktsDHvc=' 'sha256-TegtLVoo4y48oQ5Fyago2o3A0tj4aXbUc7XICcrwnaw='; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-9YhU+aJ8UE1iyQAGW/lndhJFprlNsyjpc+/Vz66i7uU=' 'sha256-A+mbeO+j+aBk9NAwF2ei2x0LIHvoWClxA1FiktsDHvc=' 'sha256-TegtLVoo4y48oQ5Fyago2o3A0tj4aXbUc7XICcrwnaw='; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; connect-src 'self' https://abeqdmurddrkrqbnfylb.supabase.co wss://abeqdmurddrkrqbnfylb.supabase.co; object-src 'none'; base-uri 'none'; form-action 'none'">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -20,6 +20,7 @@
     #hud { cursor: crosshair; }
     #boot { position: fixed; inset: 0; display: grid; place-items: center; color: #b13e53; font: bold 16px ui-monospace, monospace; text-align: center; padding: 24px; }
   </style>
+  <script src="/live.js" data-game="helpdesk-doom" defer></script>
 </head>
 <body>
   <canvas id="view"></canvas>
