@@ -119,6 +119,60 @@ async function refreshDates(games) {
   }
 }
 
+// Live counts from live.js: a "N playing" pill on each game's card, and
+// "N playing now · N visits" in the footer. Best effort: nothing shows if Supabase is down.
+const num = new Intl.NumberFormat('en-US');
+
+function showLive() {
+  const live = window.SiteLive;
+  const box = document.getElementById('live-stats');
+  if (!live || !box) return;
+  const playing = box.querySelector('.playing');
+  const visits = box.querySelector('.visits');
+  const sep = box.querySelector('.sep');
+  const tidy = () => {
+    sep.hidden = playing.hidden || visits.hidden;
+    box.hidden = playing.hidden && visits.hidden;
+  };
+
+  live.onPlayers((counts) => {
+    let all = 0;
+    for (const cardEl of document.querySelectorAll('.games .card[id]')) {
+      const n = counts[cardEl.id] || 0;
+      all += n;
+      let pill = cardEl.querySelector('.tag.live');
+      if (!n) {
+        pill?.remove();
+        continue;
+      }
+      if (!pill) {
+        let tags = cardEl.querySelector('.tags');
+        if (!tags) {
+          tags = el('ul', { class: 'tags', 'aria-label': 'Tags' });
+          cardEl.querySelector('h3').after(tags);
+        }
+        pill = el('li', { class: 'tag live' });
+        tags.prepend(pill);
+      }
+      pill.textContent = `${num.format(n)} playing`;
+    }
+    playing.hidden = all === 0;
+    playing.lastChild.textContent = `${num.format(all)} playing now`;
+    tidy();
+  });
+
+  live
+    .totals()
+    .then((rows) => {
+      const total = (rows || []).reduce((sum, r) => sum + Number(r.total || 0), 0);
+      if (!total) return;
+      visits.textContent = `${num.format(total)} ${total === 1 ? 'visit' : 'visits'}`;
+      visits.hidden = false;
+      tidy();
+    })
+    .catch(() => {});
+}
+
 async function main() {
   document.getElementById('year').textContent = new Date().getFullYear();
   const list = document.getElementById('games');
@@ -128,6 +182,7 @@ async function main() {
     const games = await res.json();
     list.replaceChildren(...games.map(card));
     refreshDates(games);
+    showLive();
   } catch {
     list.replaceChildren(el('li', { class: 'message' }, 'The game list didn’t load. Try refreshing the page.'));
   }
