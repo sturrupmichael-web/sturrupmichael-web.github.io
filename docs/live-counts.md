@@ -1,7 +1,8 @@
 # Live player counts and the visit counter
 
-The home page shows **"N playing now · N visits"** in the footer and a green
-**"N playing"** pill on each game's card while people are in it. The unlisted page
+The home page shows **"N people playing now"** (all games together) under the header,
+a **"N playing"** pill on every game's card (green when someone's in, grey at 0), and
+**"N visits"** in the footer. The unlisted page
 [/stats/](https://michaelsturrup.com/stats/) shows the details: players per game, live,
 plus visits per page and per day for the last 30 days.
 
@@ -46,6 +47,13 @@ in `script-src`.
 ```html
 <script src="https://michaelsturrup.com/live.js" data-game="my-new-game" defer></script>
 ```
+
+**Game with a build step and a strict CSP** (Plague IT, Mini Network, Access Denied,
+Helpdesk Survivors, Helpdesk Survivors 3D, League Night): copy `src/site-live.js` (or
+League Night's `src/net/siteLive.ts`) and call `joinSiteLive('<slug>')` from the entry
+point. It only runs on `michaelsturrup.com` hosts, so local dev and test suites stay
+offline. Add `https://abeqdmurddrkrqbnfylb.supabase.co wss://abeqdmurddrkrqbnfylb.supabase.co`
+to the page's `connect-src`.
 
 **Game that already uses supabase-js** (Crokinole's `src/net/presence.ts` is the
 example): join `site:presence` with a random presence key, `track({ g: slug, r: role })`
