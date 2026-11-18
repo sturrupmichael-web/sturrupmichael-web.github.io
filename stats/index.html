@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self'; style-src 'self'; script-src 'self'; connect-src 'self' https://abeqdmurddrkrqbnfylb.supabase.co wss://abeqdmurddrkrqbnfylb.supabase.co; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <meta name="robots" content="noindex">
+  <title>Site stats · Michael Sturrup</title>
+  <meta name="color-scheme" content="light dark">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/style.css">
+  <script src="/live.js" defer></script>
+  <script src="/stats/stats.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <h1>Site stats</h1>
+    <p class="tagline">Who's playing right now and how many visits each page gets. Unlisted: only people with this link find it.</p>
+  </header>
+
+  <main class="stats">
+    <section>
+      <h2>Playing now <span class="live-dot" id="conn" title="Connecting…"></span></h2>
+      <p class="big" id="now-total">–</p>
+      <ul class="rows" id="now-games"></ul>
+    </section>
+
+    <section>
+      <h2>Visits</h2>
+      <div class="kpis">
+        <div><p class="big" id="v-today">–</p><p class="muted">today (UTC)</p></div>
+        <div><p class="big" id="v-total">–</p><p class="muted">all time</p></div>
+      </div>
+      <table class="table" id="v-pages">
+        <thead><tr><th scope="col">Page</th><th scope="col">Today</th><th scope="col">All time</th></tr></thead>
+        <tbody></tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>Last 30 days</h2>
+      <ol class="bars" id="v-days" aria-label="Visits per day"></ol>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p><a href="/">← All games</a> · A visit counts once per browser tab session. Players are people with a game open (a party game's TV screen isn't counted).</p>
+  </footer>
+</body>
+</html>
