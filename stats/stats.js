@@ -7,7 +7,6 @@
   const $ = (id) => document.getElementById(id);
   const short = new Intl.DateTimeFormat('en-US', { month: 'short', day: 'numeric', timeZone: 'UTC' });
   const when = new Intl.DateTimeFormat('en-US', { month: 'short', day: 'numeric' });
-  const NOCOUNT = 'michaelsturrup.nocount';
   const FETCH_DAYS = 90;
 
   function el(tag, attrs = {}, text) {
@@ -210,27 +209,7 @@
     );
   }
 
-  // ---- Don't count me ----------------------------------------------------------
-
-  function nocount() {
-    const box = $('nocount');
-    try {
-      box.checked = localStorage.getItem(NOCOUNT) === '1';
-    } catch {
-      box.disabled = true;
-    }
-    box.addEventListener('change', () => {
-      try {
-        if (box.checked) localStorage.setItem(NOCOUNT, '1');
-        else localStorage.removeItem(NOCOUNT);
-      } catch {
-        /* storage blocked */
-      }
-    });
-  }
-
   async function main() {
-    nocount();
     try {
       const list = await (await fetch('/games.json')).json();
       for (const g of list) {

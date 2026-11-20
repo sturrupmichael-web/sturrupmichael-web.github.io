@@ -356,7 +356,7 @@ a:focus-visible {
 .seg { display: inline-flex; border: 1px solid var(--border); border-radius: 999px; overflow: hidden; }
 .seg button { border: 0; background: transparent; color: var(--muted); font: inherit; padding: 6px 14px; cursor: pointer; }
 .seg button[aria-pressed="true"] { background: var(--accent); color: var(--accent-text); }
-.seg button:focus-visible, .controls select:focus-visible, .toggle input:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+.seg button:focus-visible, .controls select:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
 .controls label { display: inline-flex; align-items: center; gap: 8px; color: var(--muted); }
 .controls select { font: inherit; color: var(--text); background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 5px 8px; max-width: 60vw; }
 .chart { max-width: 44rem; }
@@ -366,8 +366,6 @@ a:focus-visible {
 .bars.dense { gap: 1px; }
 .bars span.zero { opacity: 0.35; }
 .bars em { position: absolute; left: 0; right: 0; bottom: calc(var(--h, 0%) + 4px); text-align: center; font-style: normal; font-size: 0.75rem; color: var(--muted); }
-.toggle { display: inline-flex; align-items: center; gap: 10px; font-weight: 500; cursor: pointer; }
-.toggle input { width: 18px; height: 18px; accent-color: var(--accent); }
 @media (prefers-color-scheme: dark) { .trend.down { color: #f87171; } }
 .table.wide th, .table.wide td { padding-left: 12px; }
 .table.wide th:first-child { padding-left: 0; }

@@ -17,8 +17,6 @@
 //   SiteLive.totals()  -> Promise<[{ page, total, today }]>
 //   SiteLive.daily(30) -> Promise<[{ day, page, visits }]>
 //   SiteLive.rpc('site_stats') -> Promise<{ games, accounts, ... }>  (the stats page)
-//
-// localStorage "michaelsturrup.nocount" = "1" (the switch on /stats/) skips recording visits.
 
 (() => {
   const SB = {
@@ -42,7 +40,6 @@
 
   function recordVisit(p) {
     try {
-      if (localStorage.getItem('michaelsturrup.nocount') === '1') return; // set on /stats/
       const k = `michaelsturrup.visit.${p}`;
       if (sessionStorage.getItem(k)) return;
       sessionStorage.setItem(k, '1');

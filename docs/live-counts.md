@@ -38,11 +38,6 @@ A page calls `record_visit` once per browser tab session (remembered in
 `sessionStorage`), so refreshing doesn't inflate the count. The numbers are a simple
 count, not proof against someone deliberately calling the function in a loop.
 
-**Don't count me:** the stats page has a switch that sets `localStorage`
-`michaelsturrup.nocount = "1"` in that browser. `live.js` and Crokinole then skip
-`record_visit`. It's per browser and per origin, and the games with a copied
-`site-live.js` don't check it yet.
-
 ## Adding a game
 
 **Plain HTML game:** add one tag. The game's Content-Security-Policy, if it has one,

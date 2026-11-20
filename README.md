@@ -12,7 +12,7 @@ anonymous visit counter, see [docs/live-counts.md](docs/live-counts.md)). GitHub
 | `app.js` | Reads `games.json` and draws the cards |
 | `account.js` | Sign in with Google, shared with the games on the site. See [docs/site-sign-in.md](docs/site-sign-in.md) |
 | `live.js` | Live "N playing" counts and the visit counter. See [docs/live-counts.md](docs/live-counts.md) |
-| `stats/` | Unlisted stats page: players right now, visits per page and per day with trends, leaderboard totals per game, and a "don't count my visits" switch. Marked noindex |
+| `stats/` | Unlisted stats page: players right now, visits per page and per day with trends, leaderboard totals per game. Marked noindex |
 | `style.css` | All styling, light and dark mode included |
 | `images/` | One thumbnail per game |
 | `404.html`, `404.js` | Shown for any address that doesn't exist. `404.js` first retries the address in lowercase |
