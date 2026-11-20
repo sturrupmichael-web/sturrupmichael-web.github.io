@@ -16,6 +16,7 @@
 //   SiteLive.onPlayers((counts, state, connected) => ...)   counts = { slug: people }, live
 //   SiteLive.totals()  -> Promise<[{ page, total, today }]>
 //   SiteLive.daily(30) -> Promise<[{ day, page, visits }]>
+//   SiteLive.rpc('site_stats') -> Promise<{ games, accounts, ... }>  (the stats page)
 
 (() => {
   const SB = {
@@ -151,6 +152,7 @@
       return () => listeners.delete(cb);
     },
     totals: () => rpc('visit_totals'),
+    rpc,
     daily: (days = 30) => rpc('visit_daily', { p_days: days }),
   };
 

@@ -346,3 +346,31 @@ a:focus-visible {
 .bars li { flex: 1; height: 100%; display: flex; align-items: flex-end; }
 .bars span { display: block; width: 100%; height: max(var(--h, 0%), 2px); border-radius: 3px 3px 0 0; background: var(--accent); }
 .site-footer a { color: inherit; }
+.stats .kpis { flex-wrap: wrap; gap: 24px 40px; }
+.stats .note { margin-top: 10px; }
+.table.wide { max-width: 44rem; }
+.table tr.idle th, .table tr.idle td { color: var(--muted); }
+.trend.up { color: var(--live); }
+.trend.down { color: #d14343; }
+.controls { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 20px; margin-bottom: 16px; font-size: 0.875rem; }
+.seg { display: inline-flex; border: 1px solid var(--border); border-radius: 999px; overflow: hidden; }
+.seg button { border: 0; background: transparent; color: var(--muted); font: inherit; padding: 6px 14px; cursor: pointer; }
+.seg button[aria-pressed="true"] { background: var(--accent); color: var(--accent-text); }
+.seg button:focus-visible, .controls select:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+.controls label { display: inline-flex; align-items: center; gap: 8px; color: var(--muted); }
+.controls select { font: inherit; color: var(--text); background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 5px 8px; max-width: 60vw; }
+.chart { max-width: 44rem; }
+.chart .axis-max { font-size: 0.75rem; margin-bottom: 4px; }
+.chart .axis { display: flex; justify-content: space-between; font-size: 0.75rem; margin-top: 6px; }
+.bars li { position: relative; }
+.bars.dense { gap: 1px; }
+.bars span.zero { opacity: 0.35; }
+.bars em { position: absolute; left: 0; right: 0; bottom: calc(var(--h, 0%) + 4px); text-align: center; font-style: normal; font-size: 0.75rem; color: var(--muted); }
+@media (prefers-color-scheme: dark) { .trend.down { color: #f87171; } }
+.table.wide th, .table.wide td { padding-left: 12px; }
+.table.wide th:first-child { padding-left: 0; }
+@media (max-width: 520px) {
+  .table.wide { font-size: 0.8125rem; }
+  .table.wide th, .table.wide td { padding-left: 8px; }
+  .stats .kpis { gap: 16px 28px; }
+}
