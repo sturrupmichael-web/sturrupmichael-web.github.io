@@ -15,7 +15,7 @@
 <body>
   <header class="site-header">
     <h1>Site stats</h1>
-    <p class="tagline">Who's playing right now and how many visits each page gets. Unlisted: only people with this link find it.</p>
+    <p class="tagline">Who's playing right now, how many visits each page gets, and how the games are doing. Unlisted: only people with this link find it.</p>
   </header>
 
   <main class="stats">
@@ -28,18 +28,55 @@
     <section>
       <h2>Visits</h2>
       <div class="kpis">
-        <div><p class="big" id="v-today">–</p><p class="muted">today (UTC)</p></div>
+        <div><p class="big" id="v-today">–</p><p class="muted">today</p></div>
+        <div><p class="big" id="v-yesterday">–</p><p class="muted">yesterday</p></div>
+        <div><p class="big" id="v-week">–</p><p class="muted">last 7 days <span class="trend" id="v-trend"></span></p></div>
         <div><p class="big" id="v-total">–</p><p class="muted">all time</p></div>
       </div>
-      <table class="table" id="v-pages">
-        <thead><tr><th scope="col">Page</th><th scope="col">Today</th><th scope="col">All time</th></tr></thead>
+      <table class="table wide" id="v-pages">
+        <thead><tr><th scope="col">Page</th><th scope="col">Today</th><th scope="col">7 days</th><th scope="col">Change</th><th scope="col">All time</th></tr></thead>
         <tbody></tbody>
       </table>
+      <p class="muted note">Days are UTC. Change compares the last 7 days with the 7 before.</p>
     </section>
 
     <section>
-      <h2>Last 30 days</h2>
-      <ol class="bars" id="v-days" aria-label="Visits per day"></ol>
+      <h2>Visits per day</h2>
+      <div class="controls">
+        <div class="seg" role="group" aria-label="Range">
+          <button type="button" data-days="7">7 days</button>
+          <button type="button" data-days="30" aria-pressed="true">30 days</button>
+          <button type="button" data-days="90">90 days</button>
+        </div>
+        <label>Page
+          <select id="v-filter"><option value="">All pages</option></select>
+        </label>
+      </div>
+      <div class="chart">
+        <p class="axis-max muted" id="v-max"></p>
+        <ol class="bars" id="v-days" aria-label="Visits per day"></ol>
+        <div class="axis muted" id="v-axis"></div>
+      </div>
+      <p class="muted note" id="v-range-sum"></p>
+    </section>
+
+    <section>
+      <h2>Games</h2>
+      <div class="kpis">
+        <div><p class="big" id="g-accounts">–</p><p class="muted">signed-in players <span id="g-accounts-7d"></span></p></div>
+        <div><p class="big" id="g-bugs">–</p><p class="muted">open bug reports</p></div>
+      </div>
+      <table class="table wide" id="g-table">
+        <thead><tr><th scope="col">Game</th><th scope="col">Runs</th><th scope="col">Players</th><th scope="col">Wins</th><th scope="col">Best</th><th scope="col">Last played</th></tr></thead>
+        <tbody></tbody>
+      </table>
+      <p class="muted note">From the leaderboards: only games that save scores appear here, and only runs that were submitted.</p>
+    </section>
+
+    <section>
+      <h2>This browser</h2>
+      <label class="toggle"><input type="checkbox" id="nocount"> Don't count my visits</label>
+      <p class="muted note">Turn this on for each browser and device you test on, so your own visits stay out of the numbers. It's remembered in this browser only.</p>
     </section>
   </main>
 

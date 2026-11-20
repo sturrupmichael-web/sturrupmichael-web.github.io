@@ -32,10 +32,16 @@ use three functions instead:
 | `record_visit(p_page)` | anyone | +1 for today. `p_page` must be lowercase letters, digits and dashes |
 | `visit_totals()` | anyone | `page, total, today` |
 | `visit_daily(p_days)` | anyone | `day, page, visits` for the last `p_days` days (max 366) |
+| `site_stats()` | anyone | Totals only, for the stats page: per game runs, distinct players, wins, best score and last played (from `scores`, `scores_3d`, `ln_scores`, `nn_scores`), plus signed-in account count and open bug reports. No names, emails or ids |
 
 A page calls `record_visit` once per browser tab session (remembered in
 `sessionStorage`), so refreshing doesn't inflate the count. The numbers are a simple
 count, not proof against someone deliberately calling the function in a loop.
+
+**Don't count me:** the stats page has a switch that sets `localStorage`
+`michaelsturrup.nocount = "1"` in that browser. `live.js` and Crokinole then skip
+`record_visit`. It's per browser and per origin, and the games with a copied
+`site-live.js` don't check it yet.
 
 ## Adding a game
 
