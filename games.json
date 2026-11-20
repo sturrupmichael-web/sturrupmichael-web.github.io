@@ -1,5 +1,16 @@
 [
   {
+    "title": "Game Night Pack",
+    "slug": "party-pack",
+    "description": "Nine party games for the TV with phones as controllers: bluff, draw, guess, draft snacks and flick dice down the stairs. 3–8 players, plus an audience.",
+    "url": "https://michaelsturrup.com/party-pack/",
+    "thumbnail": "images/party-pack.webp",
+    "thumbnailAlt": "A collage of four party games on a TV: a tapered stepped dice board, a grid of word cards, a colour-guessing reveal and a snack card draft",
+    "tags": ["Party", "TV + phones", "3–8 players"],
+    "updated": "2026-11-20",
+    "source": { "repo": "party-pack", "branch": "main" }
+  },
+  {
     "title": "Crokinole",
     "slug": "crokinole",
     "description": "Flick wooden discs at the 20 hole and knock your rivals into the ditch. Play against the computer, pass and play, or put the board on the TV and use phones as controllers.",
